@@ -9,7 +9,7 @@
 
 ## Запуск
 
-* **конфигурация OpenRouter:** .env
+* **OpenRouter config:** .env
 ```
 pip install -r requirements.txt
 ```
