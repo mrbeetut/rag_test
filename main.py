@@ -245,7 +245,5 @@ if __name__ == "__main__":
     result = agent.solve(USER_QUERY)
 
     # Вывод A2A
-    print("\n" + "="*40)
-    print("A2A JSON OUTPUT:")
-    print("="*40)
+    print("\n" + "="*40 + "\n" + "A2A JSON OUTPUT:" + "\n" + "="*40)
     print(result.model_dump_json(indent=2, exclude_none=True))
