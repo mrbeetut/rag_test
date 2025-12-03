@@ -11,11 +11,11 @@
 ```
 pip install -r requirements.txt
 ```
-### or
+### или
 ```
 pip install openai wikipedia google-search-results python-dotenv
 ```
-### and
+### далее
 ```
 python3 main.py
 ```
