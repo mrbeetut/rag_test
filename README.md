@@ -21,3 +21,8 @@
 * **Калькулятор:** LLM часто ошибаются в расчетах. Агент использует Python-калькулятор для вычислений.
 * **Строгая типизация:** Type Hints и **Pydantic**.
 * **A2A Протокол**
+
+## Полезные ссылки
+
+* **[ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629)**
+* **[LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/)**
