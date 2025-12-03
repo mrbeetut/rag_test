@@ -7,6 +7,21 @@
 
 Проект демонстрирует подход **ReAct (Reasoning + Acting)** и протокол взаимодействия **A2A (Agent-to-Agent)**.
 
+## Запуск
+```
+pip install -r requirements.txt
+```
+### or
+```
+pip install openai wikipedia google-search-results python-dotenv
+```
+### and
+```
+python3 main.py
+```
+* **OpenRouter config:** .env
+* **Output examples:** /examples/*
+
 ## Как это работает?
 
 1.  **Рассуждает (Think):** Разбивает задачу на подзадачи ("Узнать длину моста", "Узнать скорость гепарда").
@@ -16,7 +31,7 @@
 
 ## Ключевые особенности
 
-* **OpenRouter Integration:** позволяет переключаться между **GPT**, **Gemini** или **llama** (меняется .env).
+* **OpenRouter:** позволяет переключаться между **GPT**, **Gemini** или **llama** (меняется .env).
   Для работы агента необходимо ввести свой API_KEY "OPENROUTER_API_KEY=..." в .env
 * **Калькулятор:** LLM часто ошибаются в расчетах. Агент использует Python-калькулятор для вычислений.
 * **Строгая типизация:** Type Hints и **Pydantic**.
