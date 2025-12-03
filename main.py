@@ -105,7 +105,7 @@ class CalculatorTool(BaseTool):
         except Exception as e:
             return f"Error: {e}"
 
-# --- 4. AGENT LOGIC ---
+# --- LOGIC ---
 class OpenRouterAgent:
     def __init__(self, tools: List[BaseTool]):
         self.client = OpenAI(
@@ -180,20 +180,19 @@ class OpenRouterAgent:
 
         for step in range(self.max_steps):
             try:
-                # 1. Мысль и Действие
+                # Мысль и Действие
                 response_text = self._llm_call(messages)
                 trace.append(response_text)
                 logger.info(f"Step {step+1}: {response_text.splitlines()[0]}...") # Логируем только первую строку мысли
 
                 messages.append({"role": "assistant", "content": response_text})
 
-                # 2. Поиск финального ответа
+                # Поиск финального ответа
                 if "FINAL_ANSWER:" in response_text:
                     final_answer = response_text.split("FINAL_ANSWER:")[1].strip()
                     break
 
-                # 3. Парсинг действия
-                # Ищем паттерн ACTION: tool: query
+                # Парсинг действия (паттерн ACTION: tool: query)
                 match = re.search(r"ACTION:\s*(\w+)\s*:\s*(.*)", response_text, re.IGNORECASE)
                 
                 if match:
@@ -219,10 +218,10 @@ class OpenRouterAgent:
         if not final_answer:
             return AgentResponse(status=AgentStatus.ERROR, error_message="Exceeded max iteration steps")
 
-        # 4. Самопроверка
+        # Верификация ответа
         verified_answer = self._verify_answer(query, final_answer)
 
-        # 5. Формирование ответа по протоколу
+        # Формирование ответа по протоколу
         payload = AgentPayload(
             answer=verified_answer,
             reasoning_trace=trace,
@@ -235,7 +234,7 @@ class OpenRouterAgent:
 
         return AgentResponse(status=AgentStatus.SUCCESS, payload=payload)
 
-# --- 5. ENTRY POINT ---
+# --- RUN ---
 if __name__ == "__main__":
     tools_list = [WikipediaTool(), CalculatorTool()]
     agent = OpenRouterAgent(tools=tools_list)
@@ -245,7 +244,7 @@ if __name__ == "__main__":
     # Запуск
     result = agent.solve(USER_QUERY)
 
-    # Вывод (ответ другому сервису)
+    # Вывод A2A
     print("\n" + "="*40)
     print("A2A JSON OUTPUT:")
     print("="*40)
