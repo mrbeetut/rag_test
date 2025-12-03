@@ -26,3 +26,4 @@
 
 * **[ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629)**
 * **[LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/)**
+* **[Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401)**
