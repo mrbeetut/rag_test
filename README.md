@@ -8,6 +8,8 @@
 Проект демонстрирует подход **ReAct (Reasoning + Acting)** и протокол взаимодействия **A2A (Agent-to-Agent)**.
 
 ## Запуск
+
+* **конфигурация OpenRouter:** .env
 ```
 pip install -r requirements.txt
 ```
@@ -19,7 +21,6 @@ pip install openai wikipedia google-search-results python-dotenv
 ```
 python3 main.py
 ```
-* **OpenRouter config:** .env
 * **Output examples:** /examples/*
 
 ## Как это работает?
